@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>The Wii U web browser's HTML5 gaming capabilities - Lost Decade Games</title>
+	<meta name="description" content="Official website of Lost Decade Games, an independent HTML5 game company in Silicon Valley, CA.">
+	<meta name="keywords" content="html5 games, javascript, chrome webstore, game dev, open source, blog, git, github, lost decade games, matt hackett, richtaur, geoff blair, gosub, zylo">
+	<link rel="alternate" type="application/atom+xml" title="ATOM Feed for Lost Decade Games" href="http://www.lostdecadegames.com/rss.xml">
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/media/css/combo.css?v1">
+</head>
+<body>
+	<div id="hd">
+	<h1>
+		<a href="/">Lost Decade Games</a>
+	</h1>
+	<ul id="nav">
+		<li><a href="/about/">About</a></li>
+		<li><a href="/lostcast/">Lostcast</a></li>
+		<li><a href="http://forum.lostdecadegames.com/">Forum</a></li>
+		<li><a class="focal-point" href="http://www.wizardslizard.com/">A Wizard's Lizard</a></li>
+	</ul>
+</div>
+
+<ul id="social">
+	<li><a class="youtube" href="http://www.youtube.com/LostDecadeGames" title="YouTube">YouTube</a></li>
+	<!--li><a class="apple" href="http://itunes.apple.com/us/podcast/lostcast/id481950724" title="iTunes">iTunes</a></li-->
+	<li><a class="twitter" href="https://twitter.com/LostDecadeGames" title="Twitter">Twitter</a></li>
+	<li><a class="email" href="/mailing-list/" title="Mailing List">Mailing List</a></li>
+	<li><a class="rss" href="/rss.xml" title="RSS">RSS</a></li>
+</ul>
+
+<!-- Author -->
+
+	
+
+
+<!-- Splash -->
+
+	
+
+
+<div class="splash laptop">
+	<div>
+		<h2>The Wii U web browser's HTML5 gaming capabilities</h2>
+		<em>by Matt Hackett, 2012 Dec 9</em>
+	</div>
+</div>
+
+<div class="section text blog">
+<div class="full-frame">
+	<img alt="HTML5 games on Wii U" src="/media/images/posts/wiiu/header.png" width="500" height="264" />
+</div>
+
+<p><em>Visit this page in your Wii U browser and <a href="http://arcade.lostdecadegames.com/onslaught_defense/">play Onslaught! Defense</a>!</em></p>
+
+<h1 id="html5-games-on-consoles">HTML5 games on consoles</h1>
+
+<p>Several weeks ago Microsoft released Internet Explorer on the 360. In my article <a href="/play-our-games-on-your-xbox-360/">Play our HTML5 games on your Xbox 360</a> I discussed that browser’s HTML5 gaming capabilities and the impact it could have on HTML5 game studios like ours. Around the same time, Nintendo launched their next-generation console <a href="http://www.nintendo.com/wiiu">Wii U</a>, which (after a ~3GB system update) also has its own internet browser.</p>
+
+<p>This isn’t the first time web browsers have been available on gaming consoles. Nintendo’s previous console (<a href="http://en.wikipedia.org/wiki/Wii">Wii</a>) featured a version of Opera called <a href="http://en.wikipedia.org/wiki/Internet_Channel">Internet Channel</a>. Sega’s <a href="http://en.wikipedia.org/wiki/Dreamcast">Dreamcast</a> had a web browser more than 10 years ago! But now in 2012, HTML5 games are on the rise. Is Nintendo’s new browser capable of running them?</p>
+
+<h2 id="the-good">The GOOD</h2>
+
+<div class="full-frame">
+	<img alt="Onslaught! Arena" src="/media/images/posts/wiiu/oa.jpg" />
+</div>
+
+<p>In the Wii U’s browser, I visited the <a href="http://arcade.lostdecadegames.com/">Lost Decade Games arcade</a> and was pleased that at least two of our games are playable out of the box. Here are some of the positive take-aways:</p>
+
+<ul>
+  <li>Nearly <strong>complete 2d canvas API</strong> support.</li>
+  <li>The Wii U controller’s excellent d-pad <strong>maps perfectly to the arrow keys</strong> (up/down/left/right).</li>
+  <li>The <strong>A button is mapped to enter/return</strong>.</li>
+</ul>
+
+<p>Remarkably, the browser also <a href="https://twitter.com/richtaur/status/277918286149214210">aced the Acid3 Test</a>. Its rendering engine is slow but draws everything very well. Unfortunately, there’s a lot more to say about what’s bad.</p>
+
+<h2 id="the-bad">The BAD</h2>
+
+<div class="full-frame">
+	<img alt="Wii U browser's HTML5 Test score" src="/media/images/posts/wiiu/html5test/score.jpg" />
+</div>
+
+<p>Using the online <a href="http://html5test.com/">HTML5 Test</a> tool (as well as a few of my own scripts), I compiled the capabilities of the Wii U browser. Here are some of those results:</p>
+
+<ul>
+  <li><a href="/media/images/posts/wiiu/html5test/audio.jpg">No Audio support</a></li>
+  <li><a href="/media/images/posts/wiiu/html5test/experimental.jpg">No Web Audio API</a></li>
+  <li><a href="/media/images/posts/wiiu/html5test/webGLetc.jpg">No WebGL, WebSockets, or File API</a></li>
+  <li><a href="/media/images/posts/wiiu/html5test/webAppSecurity.jpg">No AppCache, some security</a></li>
+  <li><a href="/media/images/posts/wiiu/html5test/storageWorkers.jpg">No WebWorkers</a></li>
+  <li><a href="/media/images/posts/wiiu/odFPS.jpg">Framerate is very low</a> (~10 FPS for tested games)</li>
+</ul>
+
+<p>An <code>Audio</code> object exists but it doesn’t support any standard audio formats (such as <code>mp3</code>, <code>ogg</code>, or even <code>wav</code>). Sadly there’s <strong>no WebGL support</strong> at all. Though the <code>localStorage</code> object exists and will accept commands to get and set data, <strong>the local storage data is wiped when the browser is closed</strong>, breaking its functionality completely.</p>
+
+<h1 id="it-does-play-games">It DOES play games!</h1>
+
+<div class="full-frame">
+	<img alt="Onslaught! Defense" src="/media/images/posts/wiiu/od.jpg" />
+</div>
+
+<p>Although there’s no audio, you can’t save your game, and the framerate is terrible, two of our games are playable. <a href="http://www.lunchbug.com/">Lunch Bug</a> is even monetized via Google Wallet, though without a working local storage, there’s really no point in buying anything.</p>
+
+<p>If you only end up playing only one HTML5 game in your Wii U browser, make it <a href="http://arcade.lostdecadegames.com/onslaught_defense/">Onslaught! Defense</a>. I added keyboard functionality today, and since the Wii U controller’s d-pad maps to the arrow keys, you can even play the game with the d-pad.</p>
+
+<h1 id="wii-u-controllers-browser-commands">Wii U controller’s browser commands</h1>
+
+<p>Lastly, here’s what seem to be the default browser commands of the controller’s buttons:</p>
+
+<ul>
+  <li><strong>A</strong>: mouse click or enter/return key equivalent (USABLE!)</li>
+  <li><strong>B</strong>: <code>history.back()</code></li>
+  <li><strong>Y</strong>: open bookmarks</li>
+  <li><strong>X</strong>: toggle TV visibility</li>
+  <li><strong>d-pad</strong>: arrow keys (USABLE!)</li>
+  <li><strong>Left stick</strong>: pan</li>
+  <li><strong>Right stick</strong>: zoom</li>
+  <li><strong>-</strong>: zoom out</li>
+  <li><strong>+</strong>: zoom in</li>
+  <li><strong>L/R</strong>: history.back/forward</li>
+  <li><strong>LZ/RZ</strong>: previous/next tab</li>
+</ul>
+
+<p>(Feel free to <a href="/contact/">correct me</a> if I’m wrong about any of these.)</p>
+
+<p>We’ll discuss the Wii U and its web browser in the next episode of <a href="/lostcast/">Lostcast</a>, our independent gamedev podcast. You should tune in!</p>
+
+
+
+	<p>
+		<a class="download-podcast" href="http://twitter.com/richtaur">Follow author @richtaur</a>
+	</p>
+</div>
+
+<div class="section text">
+	
+		<div class="module">
+	<!-- Begin Disqus comments -->
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+		var disqus_shortname = "lostdecadegames";
+		var disqus_identifier = "/wii-u-browser";
+		var disqus_url = "http://www.lostdecadegames.com/wii-u-browser";
+		/* * * DON'T EDIT BELOW THIS LINE * * */
+		(function() {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	<!-- End Disqus comments -->
+</div>
+
+	
+</div>
+
+
+<div id="ft">
+	<p>
+		Lost Decade Games © 2015
+		• <a href="/blog/">Blog</a>
+		• <a href="/about/tos/">Terms of Service</a>
+		• <a href="/about/video-policy/">Video Policy</a>
+	</p>
+</div>
+
+	<!-- Begin Google Analytics -->
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-16927444-7']);
+	_gaq.push(['_trackPageview']);
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+<!-- End Google Analytics -->
+
+</body>
+</html>

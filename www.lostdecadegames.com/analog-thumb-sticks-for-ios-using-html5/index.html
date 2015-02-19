@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Analog thumb sticks for iOS using HTML5 - Lost Decade Games</title>
+	<meta name="description" content="Official website of Lost Decade Games, an independent HTML5 game company in Silicon Valley, CA.">
+	<meta name="keywords" content="html5 games, javascript, chrome webstore, game dev, open source, blog, git, github, lost decade games, matt hackett, richtaur, geoff blair, gosub, zylo">
+	<link rel="alternate" type="application/atom+xml" title="ATOM Feed for Lost Decade Games" href="http://www.lostdecadegames.com/rss.xml">
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/media/css/combo.css?v1">
+</head>
+<body>
+	<div id="hd">
+	<h1>
+		<a href="/">Lost Decade Games</a>
+	</h1>
+	<ul id="nav">
+		<li><a href="/about/">About</a></li>
+		<li><a href="/lostcast/">Lostcast</a></li>
+		<li><a href="http://forum.lostdecadegames.com/">Forum</a></li>
+		<li><a class="focal-point" href="http://www.wizardslizard.com/">A Wizard's Lizard</a></li>
+	</ul>
+</div>
+
+<ul id="social">
+	<li><a class="youtube" href="http://www.youtube.com/LostDecadeGames" title="YouTube">YouTube</a></li>
+	<!--li><a class="apple" href="http://itunes.apple.com/us/podcast/lostcast/id481950724" title="iTunes">iTunes</a></li-->
+	<li><a class="twitter" href="https://twitter.com/LostDecadeGames" title="Twitter">Twitter</a></li>
+	<li><a class="email" href="/mailing-list/" title="Mailing List">Mailing List</a></li>
+	<li><a class="rss" href="/rss.xml" title="RSS">RSS</a></li>
+</ul>
+
+<!-- Author -->
+
+	
+
+
+<!-- Splash -->
+
+	
+
+
+<div class="splash laptop">
+	<div>
+		<h2>Analog thumb sticks for iOS using HTML5</h2>
+		<em>by Matt Hackett, 2011 Aug 5</em>
+	</div>
+</div>
+
+<div class="section text blog">
+<h2>From mouse and keyboard to analog thumb sticks</h2>
+<p>You may have read before about some of the <a href="http://www.lostdecadegames.com/what-we-need-to-get-our-html5-game-on-ipad-sp">difficulties of porting Onslaught! to iOS</a>. The first major hurdle we had to jump was getting a decent framerate. This and many other technical issues (including audio) were <a href="http://www.lostdecadegames.com/the-road-to-a-production-quality-html5-game-o">solved by Game Closure's SDK</a>, but there were other critical issues to address, including a fundamental difference in user input.</p>
+<p>Versions of Onslaught! Arena for&nbsp;<a href="https://chrome.google.com/webstore/detail/khodnfbkbanejphecblcofbghjdgfaih">Chrome</a> and <a href="http://itunes.apple.com/us/app/onslaught-arena/id418268106">OSX</a> rely on mouse and keyboard controls. Players can use the WASD keys (or arrow keys) to navigate, as well as the mouse for aiming and attacking. Obviously these input mechanisms are not compatible with touch devices. To make the jump to mobile as smooth as possible, we experimented with many different control schemes, and ended up providing players with two options:</p>
+<ol>
+<li><strong>Touch to move.</strong> We labeled this as the "Beginner" option, informing players to "Use one finger." This is a streamlined, AI-assisted control scheme. Players touch the device where they want their character to move, and the character automatically attacks the nearest enemy or projectile.</li>
+<li><strong>Analog thumb sticks.</strong> This is the (comparatively) "Advanced" scheme, asking players to "Use two thumbs." This mechanism provides players with complete control over where their character is moving, where he is facing, when to attack, and fine granular control over the angle of the thrown projectiles.</li>
+</ol>
+<p>
+	<a href="http://www.flickr.com/photos/50655575@N03/5829587929/in/photostream">
+		<img src="http://farm3.static.flickr.com/2791/5829587929_e6dc166d74.jpg">
+	</a>
+</p>
+<p>None of the decisions we made regarding user input were decided on lightly. First, we understood that analog thumb sticks have issues of their own, so we read up on <a href="http://www.gamasutra.com/view/feature/6323/a_guide_to_ios_twin_stick_shooter_.php">best practices</a> and studied the approach used by other popular games in the shoot 'em up genre (including <a href="http://minigore.blogspot.com/">Minigore</a> and <a href="http://itunes.apple.com/us/app/geometry-wars-touch/id364175436?mt=8">Geometry Wars</a>).&nbsp;Based on this research, there seemed to be two very different approaches to the positioning of digital thumb sticks: dynamic and static.</p>
+<p><strong>Dynamic thumb sticks</strong> (like those used in Geometry Wars) appear on the screen only after the player touches the device, creating anchor points. Movement is then recorded as relative to those points. This has advantages such as user comfort; if one player likes to have his or her thumbs near the edge of the screen, that's fine. Likewise this method supports players who would prefer to reach farther into the device for stability or other reasons. One potential downside is that without prior visual indication, it may not be easily understood how to interact with the game or where to touch the device to begin input.</p>
+<p><strong>Static thumb sticks</strong> are typically always visible and in fixed positions on the screen. We decided to go with this option for a few reasons, including what we believe to be a more robust first-time experience; players new to the game could see at a glance where to put their thumbs. Additionally, it removed issues with monsters or traps being hidden beneath players' thumbs!</p>
+
+<h2>Technical approach</h2>
+<p>We strongly believe in code reuse so we wanted something that could easily be dropped into just about any project. This led to the creation of a <a href="https://github.com/lostdecade/analog_sticks">Stick class</a> that can be used like so:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js">var stick = new Stick(40); // 40 is the size of the input
+document.addEventListener(&quot;mousemove&quot;, function (e) {
+	e.preventDefault();
+	stick.setInputXY(e.pageX, e.pageY);
+});</code></pre></div>
+<p>This is easily rendered to the canvas element with code like:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js">context.beginPath();
+context.arc(stick.limit.x, stick.limit.y, limitSize, 0, (Math.PI * 2), true);
+context.stroke();</code></pre></div>
+
+<h2>Examples</h2>
+<p>Below I've embedded an example that uses this class as a&nbsp;<strong>dynamic thumbstick</strong> that should work in most browsers. The thumb stick does not appear until input begins and controls the velocity of the green circle:</p>
+<p><iframe style="background:#fff;" width="400" height="300" scrolling="no" src="/demos/analog_sticks/"></iframe><br /><br />Using the same class, I've embedded another example, this time as a <strong>static thumbstick</strong>. This demo also controls the velocity of the green circle but it's been augumented with base and pivot graphics (the same graphics used in Onslaught!):</p>
+<p><iframe style="background:#fff;" width="400" height="300" scrolling="no" src="/demos/analog_sticks/static_with_graphic.html"></iframe></p>
+<p>For readers who would also like to see how this is accomplished on an actual iPad, load up&nbsp;<a href="/demos/analog_sticks/ios.html">this page</a>&nbsp;on your device.</p>
+
+
+	<p>
+		<a class="download-podcast" href="http://twitter.com/richtaur">Follow author @richtaur</a>
+	</p>
+</div>
+
+<div class="section text">
+	
+		<div class="module">
+	<!-- Begin Disqus comments -->
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+		var disqus_shortname = "lostdecadegames";
+		var disqus_identifier = "/analog-thumb-sticks-for-ios-using-html5";
+		var disqus_url = "http://www.lostdecadegames.com/analog-thumb-sticks-for-ios-using-html5";
+		/* * * DON'T EDIT BELOW THIS LINE * * */
+		(function() {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	<!-- End Disqus comments -->
+</div>
+
+	
+</div>
+
+
+<div id="ft">
+	<p>
+		Lost Decade Games © 2015
+		• <a href="/blog/">Blog</a>
+		• <a href="/about/tos/">Terms of Service</a>
+		• <a href="/about/video-policy/">Video Policy</a>
+	</p>
+</div>
+
+	<!-- Begin Google Analytics -->
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-16927444-7']);
+	_gaq.push(['_trackPageview']);
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+<!-- End Google Analytics -->
+
+</body>
+</html>

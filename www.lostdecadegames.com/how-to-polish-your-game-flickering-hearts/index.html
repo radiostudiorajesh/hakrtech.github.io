@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>How to polish your game: flickering hearts - Lost Decade Games</title>
+	<meta name="description" content="Official website of Lost Decade Games, an independent HTML5 game company in Silicon Valley, CA.">
+	<meta name="keywords" content="html5 games, javascript, chrome webstore, game dev, open source, blog, git, github, lost decade games, matt hackett, richtaur, geoff blair, gosub, zylo">
+	<link rel="alternate" type="application/atom+xml" title="ATOM Feed for Lost Decade Games" href="http://www.lostdecadegames.com/rss.xml">
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/media/css/combo.css?v1">
+</head>
+<body>
+	<div id="hd">
+	<h1>
+		<a href="/">Lost Decade Games</a>
+	</h1>
+	<ul id="nav">
+		<li><a href="/about/">About</a></li>
+		<li><a href="/lostcast/">Lostcast</a></li>
+		<li><a href="http://forum.lostdecadegames.com/">Forum</a></li>
+		<li><a class="focal-point" href="http://www.wizardslizard.com/">A Wizard's Lizard</a></li>
+	</ul>
+</div>
+
+<ul id="social">
+	<li><a class="youtube" href="http://www.youtube.com/LostDecadeGames" title="YouTube">YouTube</a></li>
+	<!--li><a class="apple" href="http://itunes.apple.com/us/podcast/lostcast/id481950724" title="iTunes">iTunes</a></li-->
+	<li><a class="twitter" href="https://twitter.com/LostDecadeGames" title="Twitter">Twitter</a></li>
+	<li><a class="email" href="/mailing-list/" title="Mailing List">Mailing List</a></li>
+	<li><a class="rss" href="/rss.xml" title="RSS">RSS</a></li>
+</ul>
+
+<!-- Author -->
+
+	
+
+
+<!-- Splash -->
+
+	
+
+
+<div class="splash laptop">
+	<div>
+		<h2>How to polish your game: flickering hearts</h2>
+		<em>by Matt Hackett, 2012 Mar 13</em>
+	</div>
+</div>
+
+<div class="section text blog">
+<p>
+	If you follow our blog you've probably read
+	<a href="http://www.lostdecadegames.com/how-to-make-a-simple-html5-canvas-game/">some</a>
+	<a href="http://www.lostdecadegames.com/blog-author-attribution-using-jekyll/">of</a>
+	<a href="http://www.lostdecadegames.com/how-to-embed-html5-into-a-native-mac-osx-app/">our</a>
+	<a href="http://www.lostdecadegames.com/obfuscating-javascript-with-closure-compiler/">tutorials</a>
+	by now. One common request is how to polish your game. Since this is such an amorphous thing, and varies from project to project, we'll probably be doing several tutorials on how to polish various games.
+</p>
+
+<h2>Video speaks louder than words</h3>
+
+<p>
+	So here's our first of an eventual series of polish tutorials: adding flickering hearts to our mobile browser game <a href="http://arcade.lostdecadegames.com/onslaught_defense/">Onslaught! Defense</a>.
+</p>
+
+<div class="full-frame">
+	<iframe width="500" height="284" src="http://www.youtube.com/embed/ZYJ9k1efPak" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<p>
+	<em><a href="http://www.youtube.com/watch?v=ZYJ9k1efPak">Need the YouTube URL?</a></em>
+</p>
+
+<p>
+	When developing a feature for a game, it's important to first get the core functionality in place, and then to add polish later. For example, let's say we want monsters to spawn heart containers. The implementation steps might look something like this:
+</p>
+
+<ol>
+	<li>A heart container may now appear randomly after killing a monster</li>
+	<li>If the player shoots a heart container, the player "collects" it and regains lost health</li>
+	<li>Heart containers will now <strong>disappear</strong> after 3 seconds</li>
+	<li>Heart containers will now <strong>fade out</strong> instead of instantly disappearing</li>
+	<li>Heart containers will now <strong>flicker out</strong> instead of fading out</li>
+</ol>
+
+<p>
+	Here's what the code in our game looks like:
+</p>
+
+<div class="highlight"><pre><code class="js">// Have the heart container "pop" in
+polish.popIn(this, bind(this, function () {
+	// Wait a moment, then start to flicker away… then disappear
+	var numFlashes = 20;
+	this.numFlashes = 1;
+
+	// Wait 1 second
+	this.delayTween(1000);
+
+	// Add flashes to the queue
+	for (var i = 0; i < numFlashes; ++i) {
+		this.delayTween((30 - i) * 6, bind(this, function () {
+			// Toggle opacity
+			this.opacity = this.opacity == 1 ? 0 : 1;
+
+			// Gone through all the flashes? Then remove it
+			if (++this.numFlashes == numFlashes) {
+				this.remove();
+			}
+		}));
+	}
+}));
+</code></pre></div>
+
+<p>
+	<em><a href="https://gist.github.com/2034407">Might be easier to read in this gist…</a></em>
+</p>
+
+<p>
+	Basically it adds visibilty toggling to a tweening queue, decreasing the time between toggles as it goes through the queue. Then it removes itself when it's gone through them all.
+	<em>(Sorry, no, it's not open source yet.)</em>
+</p>
+
+<p>
+	If you've got a really polished game, you might not stop there. You might have the most polished damn heart containers you've ever seen! That explode into tiny red birds that fly away while singing a synchronized song. While on fire.
+</p>
+
+<p>
+	But that's for <a href="http://www.lostdecadegames.com/rss.xml">future tutorials</a>…
+</p>
+
+
+	<p>
+		<a class="download-podcast" href="http://twitter.com/richtaur">Follow author @richtaur</a>
+	</p>
+</div>
+
+<div class="section text">
+	
+		<div class="module">
+	<!-- Begin Disqus comments -->
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+		var disqus_shortname = "lostdecadegames";
+		var disqus_identifier = "/how-to-polish-your-game-flickering-hearts";
+		var disqus_url = "http://www.lostdecadegames.com/how-to-polish-your-game-flickering-hearts";
+		/* * * DON'T EDIT BELOW THIS LINE * * */
+		(function() {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	<!-- End Disqus comments -->
+</div>
+
+	
+</div>
+
+
+<div id="ft">
+	<p>
+		Lost Decade Games © 2015
+		• <a href="/blog/">Blog</a>
+		• <a href="/about/tos/">Terms of Service</a>
+		• <a href="/about/video-policy/">Video Policy</a>
+	</p>
+</div>
+
+	<!-- Begin Google Analytics -->
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-16927444-7']);
+	_gaq.push(['_trackPageview']);
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+<!-- End Google Analytics -->
+
+</body>
+</html>

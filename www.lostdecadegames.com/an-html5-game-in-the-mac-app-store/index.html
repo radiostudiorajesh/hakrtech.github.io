@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>An HTML5 game in the Mac App Store - Lost Decade Games</title>
+	<meta name="description" content="Official website of Lost Decade Games, an independent HTML5 game company in Silicon Valley, CA.">
+	<meta name="keywords" content="html5 games, javascript, chrome webstore, game dev, open source, blog, git, github, lost decade games, matt hackett, richtaur, geoff blair, gosub, zylo">
+	<link rel="alternate" type="application/atom+xml" title="ATOM Feed for Lost Decade Games" href="http://www.lostdecadegames.com/rss.xml">
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/media/css/combo.css?v1">
+</head>
+<body>
+	<div id="hd">
+	<h1>
+		<a href="/">Lost Decade Games</a>
+	</h1>
+	<ul id="nav">
+		<li><a href="/about/">About</a></li>
+		<li><a href="/lostcast/">Lostcast</a></li>
+		<li><a href="http://forum.lostdecadegames.com/">Forum</a></li>
+		<li><a class="focal-point" href="http://www.wizardslizard.com/">A Wizard's Lizard</a></li>
+	</ul>
+</div>
+
+<ul id="social">
+	<li><a class="youtube" href="http://www.youtube.com/LostDecadeGames" title="YouTube">YouTube</a></li>
+	<!--li><a class="apple" href="http://itunes.apple.com/us/podcast/lostcast/id481950724" title="iTunes">iTunes</a></li-->
+	<li><a class="twitter" href="https://twitter.com/LostDecadeGames" title="Twitter">Twitter</a></li>
+	<li><a class="email" href="/mailing-list/" title="Mailing List">Mailing List</a></li>
+	<li><a class="rss" href="/rss.xml" title="RSS">RSS</a></li>
+</ul>
+
+<!-- Author -->
+
+	
+
+
+<!-- Splash -->
+
+	
+
+
+<div class="splash onslaught">
+	<div>
+		<h2>An HTML5 game in the Mac App Store</h2>
+		<em>by Matt Hackett, 2011 Mar 13</em>
+	</div>
+</div>
+
+<div class="section text blog">
+<p>
+	HTML5 is the development buzzword of the moment.
+	It's the "ajax ninja" of the last few years, so naturally it comes with its fair share of skepticism.
+	Indeed, many have been writing about its seemingly
+	<a href="http://developers.slashdot.org/story/11/01/20/206206/No-More-Version-Numbers-For-HTML">never-ending spec</a>,
+	<a href="http://caniuse.com/#search=html5">inconsistent implementations</a> by browser makers,
+	and even its <a href="http://techcrunch.com/2010/04/30/joe-hewitt-web-development/">inferiority to native apps</a>.
+	All are valid arguments against betting a real business on HTML5.
+</p>
+
+<a class="after" href="http://www.flickr.com/photos/50655575@N03/5517989699/">
+	<img alt="Onslaught! Arena banner on Tech Crunch" src="http://farm6.static.flickr.com/5176/5517989699_72f3ddceec_m.jpg">
+</a>
+
+<p>
+	However, here's a hard example of why you absolutely <em>should</em> consider serious development in HTML5.
+	In December of last year,
+	<a href="/announcing-onslaught-arena-for-sale-in-the-go">we launched</a> our little pure-HTML5 game
+	<a href="http://www.lostdecadegames.com/onslaught_arena">Onslaught! Arena</a> in the Google Chrome Webstore.
+	Sales <a href="http://techcrunch.com/2011/01/04/sales-have-slowed-to-a-trickle-on-googles-chrome-web-store/">could be better</a>,
+	sure, but we also just launched the <em>exact same game</em> in the <a href="http://itunes.apple.com/us/app/onslaught-arena/id418268106">Mac App Store</a>.
+	The code is identical with negligible development time required to port it over to a completely different platform.
+</p>
+
+<p>
+	Think about the business case for that. Normally it would take considerable resources to port a game to such a different platform.
+	We know our game isn't exactly a AAA title, but if programmed from the ground up in Objective-C, our best guess is it would take a few <em>months</em> to develop.
+	That's time that we can now spend on content updates or even a sequel.
+</p>
+
+<a class="before" href="http://www.flickr.com/photos/50655575@N03/5517989549/">
+	<img alt="Onslaught! Arena running on my MacBook Pro" src="http://farm6.static.flickr.com/5254/5517989549_1916903b05_m.jpg">
+</a>
+
+<p>
+	How was it done?
+	We just <a href="http://developer.apple.com/library/mac/#documentation/Cocoa/Reference/WebKit/Classes/WebView_Class/Reference/Reference.html">embedded a WebView</a> in a native Cocoa app using Xcode.
+	Is it inferior? Not noticeably so.
+	On my MacBook Pro, the <a href="http://goo.gl/ICa5u">Chrome Web Store version</a> ranges from about 50-250 FPS (frames per second) depending on how many monsters are on the screen.
+	On the same computer, the <a href="http://itunes.apple.com/us/app/onslaught-arena/id418268106">Mac App Store version</a> ranges from 30-100 FPS.
+	(You can see this for yourself: <strong>type "lddebug"</strong> while in-game to see debug information.)
+	And despite <a href="http://www.phoboslab.org/log/2011/03/the-state-of-html5-audio">nasty HTML5 audio issues</a>, sound plays great in both versions.
+</p>
+
+<p>
+	Surprisingly, the Chrome version runs faster than the native Mac version.
+	While Safari and Chrome are both using WebKit as their rendering engines,
+	Chrome is likely faster because <a href="http://code.google.com/p/v8/">V8</a> has wicked speed and its canvas rendering is <a href="http://blog.chromium.org/2010/09/unleashing-gpu-acceleration-on-web.html">hardware-accelerated</a>.
+</p>
+
+<p>
+	Either way, it runs great on both platforms and required almost no dedicated development time to port.
+	If you're a developer, you should find this exciting. We certainly do!
+</p>
+
+<a class="after" href="http://www.flickr.com/photos/50655575@N03/5517989875/">
+	<img alt="Onslaught! Arena" src="http://farm6.static.flickr.com/5019/5517989875_9bd2dd3820_m.jpg">
+</a>
+
+<p>
+	Since you made it this far, you might like to read <a href="http://www.lostdecadegames.com/our-first-week-in-the-chrome-webstore-the-num">"Our first week in the Chrome Webstore: the numbers"</a> if you're into graphs and sales numbers (and who isn't!).
+	If you'd like to learn more about our HTML5 development, including a tutorial on how to embed a WebView into a native Mac app,
+	<a href="http://twitter.com/lostdecadegames">follow us on Twitter</a>; we'll be writing about that soon.
+</p>
+
+<p>
+	<a href="http://itunes.apple.com/us/app/onslaught-arena/id418268106">
+		See Onslaught! Arena in the Mac App Store.
+	</a>
+</p>
+
+
+	<p>
+		<a class="download-podcast" href="http://twitter.com/richtaur">Follow author @richtaur</a>
+	</p>
+</div>
+
+<div class="section text">
+	
+		<div class="module">
+	<!-- Begin Disqus comments -->
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+		var disqus_shortname = "lostdecadegames";
+		var disqus_identifier = "/an-html5-game-in-the-mac-app-store";
+		var disqus_url = "http://www.lostdecadegames.com/an-html5-game-in-the-mac-app-store";
+		/* * * DON'T EDIT BELOW THIS LINE * * */
+		(function() {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	<!-- End Disqus comments -->
+</div>
+
+	
+</div>
+
+
+<div id="ft">
+	<p>
+		Lost Decade Games © 2015
+		• <a href="/blog/">Blog</a>
+		• <a href="/about/tos/">Terms of Service</a>
+		• <a href="/about/video-policy/">Video Policy</a>
+	</p>
+</div>
+
+	<!-- Begin Google Analytics -->
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-16927444-7']);
+	_gaq.push(['_trackPageview']);
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+<!-- End Google Analytics -->
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Understanding Canvas Rotation - Lost Decade Games</title>
+	<meta name="description" content="Official website of Lost Decade Games, an independent HTML5 game company in Silicon Valley, CA.">
+	<meta name="keywords" content="html5 games, javascript, chrome webstore, game dev, open source, blog, git, github, lost decade games, matt hackett, richtaur, geoff blair, gosub, zylo">
+	<link rel="alternate" type="application/atom+xml" title="ATOM Feed for Lost Decade Games" href="http://www.lostdecadegames.com/rss.xml">
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/media/css/combo.css?v1">
+</head>
+<body>
+	<div id="hd">
+	<h1>
+		<a href="/">Lost Decade Games</a>
+	</h1>
+	<ul id="nav">
+		<li><a href="/about/">About</a></li>
+		<li><a href="/lostcast/">Lostcast</a></li>
+		<li><a href="http://forum.lostdecadegames.com/">Forum</a></li>
+		<li><a class="focal-point" href="http://www.wizardslizard.com/">A Wizard's Lizard</a></li>
+	</ul>
+</div>
+
+<ul id="social">
+	<li><a class="youtube" href="http://www.youtube.com/LostDecadeGames" title="YouTube">YouTube</a></li>
+	<!--li><a class="apple" href="http://itunes.apple.com/us/podcast/lostcast/id481950724" title="iTunes">iTunes</a></li-->
+	<li><a class="twitter" href="https://twitter.com/LostDecadeGames" title="Twitter">Twitter</a></li>
+	<li><a class="email" href="/mailing-list/" title="Mailing List">Mailing List</a></li>
+	<li><a class="rss" href="/rss.xml" title="RSS">RSS</a></li>
+</ul>
+
+<!-- Author -->
+
+	
+
+
+<!-- Splash -->
+
+	
+
+
+<div class="splash laptop">
+	<div>
+		<h2>Understanding Canvas Rotation</h2>
+		<em>by Geoff Blair, 2013 Aug 30</em>
+	</div>
+</div>
+
+<div class="section text blog">
+<p><em>From time to time, we get reader or listener email asking about various aspects of developing games in HTML5. Instead of responding directly, we prefer to put the answers up on our blog in case the information can help other developers.</em></p>
+
+<p>Transformations in canvas can be tricky to understand at first. Conceptually, most people tend to think about rotating and scaling individual images. They’re often surprised and confused when the canvas API transforms their entire game when calling <code>.rotate</code> or <code>.scale</code>.</p>
+
+<p>The only way to transform images in canvas is by modifying the entire canvas. The trick is that you need to modify the canvas context just before you draw a transformed image and reset it right after. This is where the <code>.save</code> and <code>.restore</code> methods come in.</p>
+
+<p>Saving a canvas context stores the current configuration, including transformations (or lack thereof). Restoring a canvas context does just the opposite, resetting the current configuration to the last saved state.</p>
+
+<p>Another gotcha for transformation is that by default, all transformations occur from the origin of 0, 0 on the canvas, which is the upper left. The most common use case for rotation and scaling is from the center of an individual image such as a game sprite. Luckily, there’s another canvas method we can use to change the transformation origin, <code>.translate</code>.</p>
+
+<p>Let’s take a look at how we’d achieve a simple rotation of a rectangle. Inline comments in the code explain what’s happening in more detail.</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js">// Create our canvas
+// Append it to the document body
+var stage = document.createElement(&quot;canvas&quot;);
+stage.width = 320;
+stage.height = 240;
+document.body.appendChild(stage);
+
+// Grab a reference to the canvas&#39; 2D context
+var ctx = stage.getContext(&quot;2d&quot;);
+
+// Paint a background color
+ctx.fillStyle = &quot;cornflowerblue&quot;;
+ctx.fillRect(0, 0, stage.width, stage.height);
+
+// Draw a non-transformed red rectangle on the left
+ctx.fillStyle = &quot;red&quot;;
+ctx.fillRect(40, 80, 80, 80);
+
+// Now, let&#39;s draw a rotated
+// yellow rectangle on the right
+// First, let&#39;s save our canvas context in order to
+// easily restore it after our transformations
+ctx.save();
+
+// Next, we&#39;ll translate (move the origin) to the
+// center of where we&#39;ll be drawing the rectangle
+ctx.translate(240, 120);
+
+// Any transformations applied from here on out
+// will be relative to the origin of 240, 120
+// Note that we&#39;re using radians to specify rotation
+ctx.rotate(Math.PI / 4); // 45 degrees
+
+// If we desired to scale the rectangle
+// 1.5x normal size on both the x and y axis
+// ctx.scale(1.5, 1.5);
+
+// Now we&#39;re ready to draw our rectangle
+// The difference this time is that our coordinates
+// are relative to the origin, just like .rotate
+ctx.fillStyle = &quot;yellow&quot;;
+ctx.fillRect(-40, -40, 80, 80);
+
+// Finally, we restore our canvas context so
+// that subsequent draws are not transformed
+ctx.restore();</code></pre></div>
+
+<p>Tada! A rotated rectangle without rotating the entire canvas.</p>
+
+<div class="full-frame">
+	<img alt="A simple example of a transformed rectangle in canvas" src="/media/images/posts/canvasTransform/simpleCanvasTransform.png" />
+</div>
+
+<p>Here’s a <a href="https://gist.github.com/geoffb/6392450">gist of the entire sample code</a>. Check out this <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/Graphics/Drawing_graphics_with_canvas#Graphics_State">canvas graphics article on MDN</a> for more information.</p>
+
+
+
+	<p>
+		<a class="download-podcast" href="http://twitter.com/geoffblair">Follow author @geoffblair</a>
+	</p>
+</div>
+
+<div class="section text">
+	
+		<div class="module">
+	<!-- Begin Disqus comments -->
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+		var disqus_shortname = "lostdecadegames";
+		var disqus_identifier = "/understanding-canvas-rotation";
+		var disqus_url = "http://www.lostdecadegames.com/understanding-canvas-rotation";
+		/* * * DON'T EDIT BELOW THIS LINE * * */
+		(function() {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	<!-- End Disqus comments -->
+</div>
+
+	
+</div>
+
+
+<div id="ft">
+	<p>
+		Lost Decade Games © 2015
+		• <a href="/blog/">Blog</a>
+		• <a href="/about/tos/">Terms of Service</a>
+		• <a href="/about/video-policy/">Video Policy</a>
+	</p>
+</div>
+
+	<!-- Begin Google Analytics -->
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-16927444-7']);
+	_gaq.push(['_trackPageview']);
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+<!-- End Google Analytics -->
+
+</body>
+</html>

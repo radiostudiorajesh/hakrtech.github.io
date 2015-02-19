@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Firefox Audio canplay bugs - Lost Decade Games</title>
+	<meta name="description" content="Official website of Lost Decade Games, an independent HTML5 game company in Silicon Valley, CA.">
+	<meta name="keywords" content="html5 games, javascript, chrome webstore, game dev, open source, blog, git, github, lost decade games, matt hackett, richtaur, geoff blair, gosub, zylo">
+	<link rel="alternate" type="application/atom+xml" title="ATOM Feed for Lost Decade Games" href="http://www.lostdecadegames.com/rss.xml">
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/media/css/combo.css?v1">
+</head>
+<body>
+	<div id="hd">
+	<h1>
+		<a href="/">Lost Decade Games</a>
+	</h1>
+	<ul id="nav">
+		<li><a href="/about/">About</a></li>
+		<li><a href="/lostcast/">Lostcast</a></li>
+		<li><a href="http://forum.lostdecadegames.com/">Forum</a></li>
+		<li><a class="focal-point" href="http://www.wizardslizard.com/">A Wizard's Lizard</a></li>
+	</ul>
+</div>
+
+<ul id="social">
+	<li><a class="youtube" href="http://www.youtube.com/LostDecadeGames" title="YouTube">YouTube</a></li>
+	<!--li><a class="apple" href="http://itunes.apple.com/us/podcast/lostcast/id481950724" title="iTunes">iTunes</a></li-->
+	<li><a class="twitter" href="https://twitter.com/LostDecadeGames" title="Twitter">Twitter</a></li>
+	<li><a class="email" href="/mailing-list/" title="Mailing List">Mailing List</a></li>
+	<li><a class="rss" href="/rss.xml" title="RSS">RSS</a></li>
+</ul>
+
+<!-- Author -->
+
+	
+
+
+<!-- Splash -->
+
+	
+
+
+<div class="splash laptop">
+	<div>
+		<h2>Firefox Audio canplay bugs</h2>
+		<em>by Matt Hackett, 2012 Jul 13</em>
+	</div>
+</div>
+
+<div class="section text blog">
+<p>We’re getting geared up to launch our new game <strong>Lunch Bug</strong>, so we’ve (finally) been testing the game more thoroughly in browsers other than Google Chrome. In the process, it looks like I may have found a few audio bugs in Firefox.</p>
+
+<p>There seem to be two bugs. The first bug is that Firefox throws the <code>canplay</code> and <code>canplaythrough</code> events twice when an audio file loads (they should only be thrown once). I could only reproduce this on Mac OS X.</p>
+
+<p>Second, Firefox appears to fire the <code>canplay</code> and <code>canplaythrough</code> events when an audio instance’s <code>currentTime</code> property is set. This is unexpected behavior and doesn’t happen in other browsers. When talking with Geoff, it came up that there could be a case where this behavior might make sense: for example if <code>currentTime</code> was set to a value past what has loaded so far, perhaps <code>currentTime</code> could tell listeners that it cannot play.</p>
+
+<p>However this behavior doesn’t seem intentional, as it doesn’t happen in other browsers and isn’t mentioned (at least to my knowledge) in the W3C specification.</p>
+
+<p><a class="download-podcast" href="/demos/firefox_audio_canplay_bugs/">Show me the demonstration!</a></p>
+
+<p>The ridiculously large button above links to the <a href="/demos/firefox_audio_canplay_bugs/">demo</a> where you can try out the bugs for yourself, and I put the <a href="https://github.com/lostdecade/firefox_audio_canplay_bugs">source code on GitHub</a>.</p>
+
+<p>By taking the time to create a concise demonstration, my hope is to make it easier for other developers to either help me figure out the confusion on my end, or if these are indeed bugs in Firefox, to ease the process of getting those fixed. On that note I’ve created two tickets using Mozilla’s bug tracker:</p>
+
+<ul>
+  <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=773883">Firefox on Mac throws canplay and canplaythrough events twice per audio load</a></li>
+  <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=773885">Firefox throws canplay and canplaythrough events when currentTime is set</a></li>
+</ul>
+
+<p>What do you think? Was the demonstration easy to follow? Do these bugs look legitimate? If so, do you know any Mozilla engineers?</p>
+
+
+	<p>
+		<a class="download-podcast" href="http://twitter.com/richtaur">Follow author @richtaur</a>
+	</p>
+</div>
+
+<div class="section text">
+	
+		<div class="module">
+	<!-- Begin Disqus comments -->
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+		var disqus_shortname = "lostdecadegames";
+		var disqus_identifier = "/firefox-audio-canplay-bugs";
+		var disqus_url = "http://www.lostdecadegames.com/firefox-audio-canplay-bugs";
+		/* * * DON'T EDIT BELOW THIS LINE * * */
+		(function() {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	<!-- End Disqus comments -->
+</div>
+
+	
+</div>
+
+
+<div id="ft">
+	<p>
+		Lost Decade Games © 2015
+		• <a href="/blog/">Blog</a>
+		• <a href="/about/tos/">Terms of Service</a>
+		• <a href="/about/video-policy/">Video Policy</a>
+	</p>
+</div>
+
+	<!-- Begin Google Analytics -->
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-16927444-7']);
+	_gaq.push(['_trackPageview']);
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+<!-- End Google Analytics -->
+
+</body>
+</html>

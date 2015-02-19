@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Lava Sword Dev Diary - Lost Decade Games</title>
+	<meta name="description" content="Official website of Lost Decade Games, an independent HTML5 game company in Silicon Valley, CA.">
+	<meta name="keywords" content="html5 games, javascript, chrome webstore, game dev, open source, blog, git, github, lost decade games, matt hackett, richtaur, geoff blair, gosub, zylo">
+	<link rel="alternate" type="application/atom+xml" title="ATOM Feed for Lost Decade Games" href="http://www.lostdecadegames.com/rss.xml">
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/media/css/combo.css?v1">
+</head>
+<body>
+	<div id="hd">
+	<h1>
+		<a href="/">Lost Decade Games</a>
+	</h1>
+	<ul id="nav">
+		<li><a href="/about/">About</a></li>
+		<li><a href="/lostcast/">Lostcast</a></li>
+		<li><a href="http://forum.lostdecadegames.com/">Forum</a></li>
+		<li><a class="focal-point" href="http://www.wizardslizard.com/">A Wizard's Lizard</a></li>
+	</ul>
+</div>
+
+<ul id="social">
+	<li><a class="youtube" href="http://www.youtube.com/LostDecadeGames" title="YouTube">YouTube</a></li>
+	<!--li><a class="apple" href="http://itunes.apple.com/us/podcast/lostcast/id481950724" title="iTunes">iTunes</a></li-->
+	<li><a class="twitter" href="https://twitter.com/LostDecadeGames" title="Twitter">Twitter</a></li>
+	<li><a class="email" href="/mailing-list/" title="Mailing List">Mailing List</a></li>
+	<li><a class="rss" href="/rss.xml" title="RSS">RSS</a></li>
+</ul>
+
+<!-- Author -->
+
+	
+
+
+<!-- Splash -->
+
+	
+
+
+<div class="splash laptop">
+	<div>
+		<h2>Lava Sword Dev Diary</h2>
+		<em>by Matt Hackett, 2012 Feb 24</em>
+	</div>
+</div>
+
+<div class="section text blog">
+<div class="full-frame"><img alt="Lava Sword environment #2" src="/media/images/posts/lava_sword/lava_sword_02.png" /></div>
+
+<p>So I’m working on a new game tentatively titled <strong>Lava Sword</strong>. The goals of the game are pretty specific: we want an <strong>arcade-style action game optimized for mobile browsers</strong>. I’ve been thinking about <a href="http://www.gamasutra.com/view/feature/6698/principles_of_an_indie_game_bottom_.php">Jeff Vogel’s recent blog</a> about how indie game devs should be looking at some of their favorite games for inspiration, so I decided to revisit some of mine.</p>
+
+<h2 id="influence">Influence</h2>
+
+<p>A few of my favorite arcade-style games when growing up include <a href="http://www.youtube.com/watch?v=hU6E8ZuTMxA">Golden Axe</a>, <a href="http://www.youtube.com/watch?v=9N93qVpk1Wc">Altered Beast</a> and <a href="http://www.youtube.com/watch?v=SKRXg0AISG4">Magic Sword</a>. (As one of the few gamers into Turbo Duo back in the day, there’s also some <a href="http://www.youtube.com/watch?v=wrp5gsfqckU">Legendary Axe</a> influence, but that’s pretty obscure!) These are mostly story-based fighting games with tight controls and complex battles. That’s really not good for mobile!</p>
+
+<p>Is there another approach I could take? Essentially I want to <strong>capture the spirit of these games</strong> on a mobile device. Beyond the advanced controller input, I thought about what else makes these games what they are. Big sprites is one. Vibrant, open, scrolling environments is another. Really, the <strong>simplest</strong> version of these games would consist of just moving around the environment and attacking. Hell, mobile can do that. So I got to work.</p>
+
+<h2 id="prototyping">Prototyping</h2>
+
+<div class="full-frame"><img alt="First pass: rectangles!" src="/media/images/posts/lava_sword/rectangles.png" /></div>
+
+<p>That’s’s the <strong>first screenshot</strong>, taken as early as there was anything to to take a screenshot of. As you can see, the game starts very simple. On a plain green background, I represent the player with a blue rectangle and monsters with red rectangles. Gold and other treasures are represented by yellow rectangles. This is the prototyping stage of game development where your game should <strong>begin to be fun</strong>. <em>If you can’t find something entertaining at this stage, you shouldn’t move on to the next stage.</em> You should <strong>focus on making it fun</strong>.</p>
+
+<h2 id="spriting">Spriting</h2>
+
+<p>After finding the fun, I started working on some basic graphics. Nothing too complicated like animations and stuff; I’m not ready for that yet. For the time being, I mostly wanted to see about getting <strong>parralax scrolling</strong> into the mix, because if I run into some brick wall along the way, the game’s basically a no-go. (…though mostly I just love parralax scrolling and couldn’t resist.) I also wanted to make sure I wouldn’t hit an inspirational brick wall, and graphics really help with that.</p>
+
+<div class="full-frame"><img alt="Lava Sword environment #1" src="/media/images/posts/lava_sword/lava_sword_01.png" /></div>
+
+<p>It would be cool if eventually there were many environments, but this is adequate for now. And that’s all I’ve got so far! So what’s next for <strong>Lava Sword</strong>? Let’s take a look at the ol’ TODO list:</p>
+
+<ul>
+  <li>Implement player/monster health</li>
+  <li>Item/weapon drops</li>
+  <li>Difficulty progression</li>
+  <li>Game flow (title screen/gameplay/paused/game over)</li>
+  <li>Player/monster animations</li>
+  <li>Polish polish polish</li>
+</ul>
+
+<p>Lots more graphics are in the works too! None of them has been “final” so far (especially the warrior, he needs a new approach). Here’s where I’m currently at:</p>
+
+<div class="full-frame"><img alt="More Lava Sword graphics coming" src="/media/images/posts/lava_sword/more_gfx_coming.png" /></div>
+
+<h2 id="more-to-come">More to come</h2>
+
+<p>If you find this kind of stuff interesting, you should <a href="http://www.lostdecadegames.com/rss.xml">subscribe to our blog</a> and/or <a href="https://twitter.com/#!/LostDecadeGames">follow us on Twitter</a>, because I’ll be posting another <strong>Lava Sword</strong> dev diary again soon (maybe with video). Thanks for reading!</p>
+
+
+
+	<p>
+		<a class="download-podcast" href="http://twitter.com/richtaur">Follow author @richtaur</a>
+	</p>
+</div>
+
+<div class="section text">
+	
+		<div class="module">
+	<!-- Begin Disqus comments -->
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+		var disqus_shortname = "lostdecadegames";
+		var disqus_identifier = "/lava-sword-dev-diary-part-1";
+		var disqus_url = "http://www.lostdecadegames.com/lava-sword-dev-diary-part-1";
+		/* * * DON'T EDIT BELOW THIS LINE * * */
+		(function() {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	<!-- End Disqus comments -->
+</div>
+
+	
+</div>
+
+
+<div id="ft">
+	<p>
+		Lost Decade Games © 2015
+		• <a href="/blog/">Blog</a>
+		• <a href="/about/tos/">Terms of Service</a>
+		• <a href="/about/video-policy/">Video Policy</a>
+	</p>
+</div>
+
+	<!-- Begin Google Analytics -->
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-16927444-7']);
+	_gaq.push(['_trackPageview']);
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+<!-- End Google Analytics -->
+
+</body>
+</html>
