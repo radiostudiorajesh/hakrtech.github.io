@@ -1,41 +1,5 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru">
-<head>
-  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7,IE=edge">
-    <base href="http://hakrlife.github.io/">
-      <link rel='stylesheet' type='text/css' href='/login.css' />
-        <script src="/jquery1.7.1.js" type="text/javascript" charset="utf-8"></script>
-          <script type='text/javascript' src='/main.js'></script>
-            <title>My HAKR</title>
-              <!--[if lt IE 9]>
-                <script src="/html5.js"></script>
-                  <link rel='stylesheet' type='text/css' href='/css/css_ie8.css?v23' />
-                    <![endif]-->
-                    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-                    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-                    <link rel="apple-touch-icon" href="/images/design/apple_mya.png"/>
-                    <meta property="og:image" content="https://hakrlife.github.io/images/design/apple_mya.png" />
-                    <meta property="og:title" content="My HAKR | My HAKR" />
-                    <meta property="og:description" content="My HAKR is a customer care service. Submit a request to technical support for assistance with HAKR Labs products for home and small office." />
-                    <meta name="description" content="My HAKR is a customer care service. Submit a request to technical support for assistance with HAKR Labs products for home and small office.">
-                    </head>
-                    <!-- IPIN C1097 -->
-                    <body class="interf_lang_en">
-
-                    <div id="wrap"><div class="main pd-footer">
-
-                    <header class="bg-white pd">
-                      <!--p class="fc"><!--/p>
-                      <!-- menu -->
-                      <div class="chamf bg-green cb new-head">
-                         <div class="fl">
-                           <a title="My HAKR"  class="h-title ga_title" href="https://hakrlife.github.io/en/">Human Analytics Knowledge Research Labs</a>
-                         </div>
-                         <div class="fr">
-		         </div>
-                       </div>
-	            </header>
-                                                                              <section class="mrt"><a name=page_top></a><div id='content_ajax'>
+include(`1header.html.m4')
+<section class="mrt"><a name=page_top></a><div id='content_ajax'>
                                                                               <div style=";" class="pd2 pd3">
                                                                               <!-- mya_blocked - 1424945583 [465]  -->
                                                                               <style>
