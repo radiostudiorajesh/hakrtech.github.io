@@ -30,9 +30,8 @@
       <span class="sel-cust sel-lang sel-green" style='border:0px;height: 24px;'>
         <form style='display: inline-block;' name=lang_switch> 
           <select style='font-size1:14px;' class="lang_switch" name="lang_switch">
-            <option selected value='https://hakrlife.github.io/en/index.html'>English
-            <option  value='https://hakrlife.github.io/hi/index.html'>Tamil
-            <option  value='https://hakrlife.github.io/ta/index.html'>Tamil
+            <option selected value='https://hakrlife.github.io/index.html'   >English
+            <option          value='https://hakrlife.github.io/ta/index.html'>Tamil
           </select>
 
         </form>
