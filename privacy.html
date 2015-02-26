@@ -42,7 +42,7 @@
     <!-- menu -->
     <div class="chamf bg-green cb new-head">
       <div class="fl">
-        <p><a title="My HAKR"  class="h-title ga_title" href="https://hakrlife.github.io/">Human Analytics Knowledge Resource Labs, India</a></p>
+        <p><a title="My HAKR"  class="h-title ga_title" href="https://hakrlife.github.io/">Human Analytics Knowledge Research Labs, India</a></p>
       </div>
       <div class="fr" removed="b-header__logo_home"></div>
       </div>
