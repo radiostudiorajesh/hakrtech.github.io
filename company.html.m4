@@ -25,16 +25,30 @@
                     <div id="wrap"><div class="main pd-footer">
 
                     <header class="bg-white pd">
-                      <!--p class="fc"><!--/p>
-                      <!-- menu -->
-                      <div class="chamf bg-green cb new-head">
-                         <div class="fl">
-                           <a title="My HAKR"  class="h-title ga_title" href="https://hakrlife.github.io/en/">Human Analytics Knowledge Research Labs</a>
-                         </div>
-                         <div class="fr">
-		         </div>
-                       </div>
-	            </header>
+
+                      <p class="fc"></p>
+                        <div class="fl frm frm-lang">
+                          <span class="sel-cust sel-lang sel-green" style='border:0px;height: 24px;'>
+                            <form style='display: inline-block;' name=lang_switch> 
+
+                            <select style='font-size1:14px;' class="lang_switch" name="lang_switch">
+                            <option selected value='https://hakrlife.github.io/en/index.html'>English
+                            </select>
+
+                            </form>
+                              </span>
+                                </div>
+
+                                  <p class="fc"></p>
+                                    <!-- menu -->
+                                        <div class="chamf bg-green cb new-head">
+                                                <div class="fl">
+                                                          <p><a title="My HAKR"  class="h-title ga_title" href="https://hakrlife.github.io/en/">My HAKR</a></p>
+                                                                  </div>
+                                                                          <div class="fr b-header__logo_home"></div>
+                                                                              </div>
+
+                                                                              </header>
                                                                               <section class="mrt"><a name=page_top></a><div id='content_ajax'>
                                                                               <div style=";" class="pd2 pd3">
                                                                               <!-- mya_blocked - 1424945583 [465]  -->
@@ -936,19 +950,5 @@
                                                                                                                                       </div>
                                                                                                                                       </div>
                                                                                                                                       
-<footer>
-  <div class="main">
-    <div class="f-logo">
-      &copy; 2015 HAKR Labs. All Rights Reserved.
-    </div>
-    <div class="f-links">
-      <a title="Company"           class="ga_Footer_KnowledgeBase" href="http://hakr.co.in/company.html">Company</a> |
-      <a title="Terms of Service"  class="ga_Footer_Privacy"       href="http://hakr.co.in/terms-of-service.html">Terms of Service</a> |
-      <a title="Privacy Policy"    class="ga_Footer_FAQ"           href="http://hakr.co.in/privacy-policy.html">Privacy Policy</a> |
-      <a title="Contacts"          class="ga_Footer_Contacts"      href="http://hakrlife.github.io/contact.html">Contact</a>
-    </div>
-  </div>                
-</footer>
-</body>
-</html>
 
+include(`9footer.html.m4')
