@@ -11,9 +11,20 @@ include(`55signin.html.m4')
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         <p class="fc"></p>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             <div class="clear"></div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div class="p8-note">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <h3>Human Analytics Knowledge Research Labs is a startup located at:<br>HAKR Labs, Suite 6, Maharaja Agrasen Ashram Trust, Parikrama Marg, Raman Reti, Vrindavan, Mathura 281121, Uttar Pradesh, India.</h3>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </div>
+<div class="p8-note">
+<h3>Human Analytics Knowledge Research Labs is a startup located at:<br>
+HAKR Labs, <br>
+Suite 6, Maharaja Agrasen Ashram Trust, <br>
+Parikrama Marg, <br>
+Raman Reti, <br>
+Vrindavan, <br>
+Mathura 281121, <br>
+Uttar Pradesh, <br>
+India.</h3>
+<br>
+Email: dinesh.thirumurthy@acm.org<br>
+</h3>
+</div>
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </div>
 
