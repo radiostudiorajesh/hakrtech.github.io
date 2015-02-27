@@ -1,10 +1,5 @@
 include(`00-TOP.html.m4')
-<h2> </h2>
 <h1> 
-&nbsp;<br>
-&nbsp;<br>
-&nbsp;<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Analysing human potential, <br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transforming them using meaningful change, <br>
