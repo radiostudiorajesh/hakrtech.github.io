@@ -18,9 +18,5 @@ include(`00-TOP.html.m4')
 <h4>&nbsp;&nbsp;Alavur Narasimhan Lakshmi Madhavann, InfoSoft Chennai </h4>
 <h4>&nbsp;&nbsp;Venkatakrishnan Rangarajan, Knowlvers Delhi</h4>
 <br>
-<h1>Engineering</h1>
-<h4>
-              &nbsp;&nbsp;Sekar Chenniyappan 
-&nbsp;&nbsp;| &nbsp;&nbsp;Thanigaivel Gopal
 </h4>
 include(`99-BOTTOM.html.m4')
