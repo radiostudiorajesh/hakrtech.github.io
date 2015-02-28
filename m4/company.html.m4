@@ -3,7 +3,7 @@ include(`00-TOP.html.m4')
 <h1>Execution</h1>
 <br>
 <h4>&nbsp;&nbsp;Dinesh Thirumurthy (dinesh.thirumurthy@acm.org)
-)</h4>
+</h4>
 <br>
 <h1>Investors:</h1>
 <br>
