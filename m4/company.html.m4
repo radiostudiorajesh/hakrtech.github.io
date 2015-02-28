@@ -15,7 +15,7 @@ include(`00-TOP.html.m4')
 <br>
 <h1>General Counsel</h1>
 <h4>&nbsp;&nbsp;Anand SVR, IISc Bangalore </h4>
-<h4>&nbsp;&nbsp;Alavur Lakshmi Narasimha Madhavann, InfoSoft Chennai </h4>
+<h4>&nbsp;&nbsp;Alavur Narasimhan Lakshmi Madhavann, InfoSoft Chennai </h4>
 <h4>&nbsp;&nbsp;Venkatakrishnan Rangarajan, Knowlvers Delhi</h4>
 <br>
 <h1>Engineering</h1>
