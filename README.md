@@ -1,1 +1,1 @@
-hakrlife.github.io
+hakrtech.github.io
